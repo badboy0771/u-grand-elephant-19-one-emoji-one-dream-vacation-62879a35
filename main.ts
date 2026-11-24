@@ -2,23 +2,25 @@
 // The program validates the emoji against the bounty gate, writes it to
 // /output/entry.txt, then reads the file back to confirm the write landed.
 //
-// The emoji (v1): U+1F3DD DESERT ISLAND. The most direct postcard there is:
-// sun, sea, sand and one palm, the image every "dream vacation" search
-// returns first. Chosen as the baseline because it is the plainest possible
-// reading of the brief — a stranger sees beach, island and escape in one
-// glance, no words needed, readable at any size on any screen.
+// The emoji (v2): U+1F41A SPIRAL SHELL. A deliberate turn away from v1's
+// postcard cliché: instead of the whole island, one small thing a traveller
+// actually picks up on the beach and carries home. It is personal and
+// specific where the desert island is generic — a shell belongs to one
+// morning, one shore, one person bending down — and it carries a spark of
+// wit: the whole dream vacation folded into a souvenir the size of a coin.
 //
-// The risk, and why this is only v1: it is also the most obvious pick in the
-// field. The judge's third and fourth criteria reward the specific and the
-// fresh over the generic, so a later revision should trade some of this
-// instant obviousness for a moment or a detail that belongs to one trip
-// rather than every holiday.
+// The risk, and why this is not yet final: the judge's second criterion
+// wants the stranger to see the place before reading a word, and a shell
+// shows a keepsake, not the place itself. Against a plain beach or island
+// it can lose on vividness even while it wins on specificity. The final
+// revision should keep v2's specificity but put the place back in the
+// picture: a scene, not an object, and a moment, not a postcard.
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
-// U+1F3DD, exactly one code point, 4 bytes in UTF-8. Written as an escape
+// U+1F41A, exactly one code point, 4 bytes in UTF-8. Written as an escape
 // so no variation selector or invisible joiner can sneak in.
-const ENTRY = "\u{1F3DD}";
+const ENTRY = "\u{1F41A}";
 
 function checkEntry(emoji: string): string {
   // The gate: /output/entry.txt must be UTF-8 text of 1 to 8 characters,
